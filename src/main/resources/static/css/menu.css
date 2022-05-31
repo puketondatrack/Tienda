@@ -10,7 +10,7 @@ body{
 
 .header{
     background-color: grey;
-    height: 12%;
+    height: 100px;
     position: fixed;
     top: 0;
     left: 0;
@@ -20,7 +20,7 @@ body{
 .nav{
     display: flex;
     justify-content: space-between;
-    max-width: 100%;
+    max-width: 992px;
     margin: 0 auto;
 }
 .nav-link{
@@ -32,23 +32,25 @@ body{
     font-size: 30px;
     font-weight: bold;
     padding: 0 40px;
-    line-height: 90vh;
+    line-height: 90px;
 }
 
 .nav-menu{
     display: flex;
     margin-left: 40px;
     list-style: none;
+    color: white;
 }
 
 .nav-menu-item{
     font-size: 18px;
     margin: 0 10px;
-    line-height: 80vh;
+    line-height: 80px;
+    width: max-content;
 }
 
 .nav-menu-item:hover{
-    background-color: navy;
+    background-color: black;
     transition: 0.5s;
 }
 
