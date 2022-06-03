@@ -6,12 +6,15 @@
     width: 100%;
     background-color: cadetblue;
     color: white;
+
 }
+
 
 #encabezado h1{
     display: inline;
 }
 .descripcion{
+
     font-size: 18px;
 }
 
