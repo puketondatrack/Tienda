@@ -1,15 +1,54 @@
 <!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
--->
-<html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <title>TODO supply a title</title>
+        <title>TechShop</title>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link th:href="@{/css/menu.css}" rel="stylesheet" type="text/css"/>
+
     </head>
     <body>
-        <div>TODO write content</div>
+        <header th:replace="layout/plantilla :: header"/>
+        <h2 th:text="#{articulo.datos}">Datos del articulo</h2>
+        <a th:href="@{/articulo/listado}" th:text="#{accion.regresar}">Regresar</a>
+        <br/>
+        <br/>
+        <div class="contenido">
+            <form th:action="@{/articulo/guardar}"
+                  method="post"
+                  th:object="${articulo}">
+                <input type="hidden" name="idArticulo" th:field="*{idArticulo}"/>
+                <laber form="nombre" th:text="#{articulo.categoria}">Categoria: </laber>
+                <select th:field="*{idCategoria}">
+                    <option th:each="categoria : ${categorias}"
+                            th:value="${categoria.idCategoria}"
+                            th:text="${categoria.descripcion}"/>
+                </select>
+                <br/>
+                <laber form="descripcion" th:text="#{articulo.descripcion}">Descripcion: </laber>
+                <input type="text" id="descripcion" name="descripcion" th:field="*{descripcion}"/>
+                <br/>
+
+                <laber form="detalle" th:text="#{articulo.detalle}">Detalle: </laber>
+                <input type="text" id="detalle" name="detalle" th:field="*{detalle}"/>
+                <br/>
+
+                <laber form="precio" th:text="#{articulo.precio}">Precio: </laber>
+                <input type="number" id="precio" name="precio" th:field="*{precio}"/>
+                <br/>
+
+                <laber form="existencias" th:text="#{articulo.existencias}">Existencias: </laber>
+                <input type="number" id="existencias" name="existencias" th:field="*{existencias}"/>
+                <br/>
+
+                <laber form="activo" th:text="#{articulo.activo}">Activo: </laber>
+                <input type="checkbox" id="activo" name="activo" th:field="*{activo}"/>
+                <br/>
+
+                <input type="submit" name="guardar" th:value="#{accion.guardar}" />
+            </form>
+        </div>
+        <footer th:replace="layout/plantilla :: footer" />
     </body>
 </html>

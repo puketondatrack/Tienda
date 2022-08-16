@@ -22,7 +22,7 @@ public class IndexController {
         log.info("Ahora utilizamos MVC");
         
         var articulos = articuloService.getArticulos(true);
-        model.addAttribute("clientes", articulos);
+        model.addAttribute("articulos", articulos);
 
         return "index";
 
